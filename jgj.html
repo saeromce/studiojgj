@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JGJ Design Studio</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'jgj-black': '#000000',
+                        'jgj-white': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        // Set default sans-serif font stack
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Import Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Hide horizontal overflow for aesthetic reasons */
+            overflow-x: hidden;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection color setting */
+        ::selection {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        /* Mobile: disable fixed sidebar and set mobile navigation style */
+        @media (max-width: 767px) {
+            .md\:fixed {
+                position: static !important;
+                height: auto !important;
+            }
+            .md\:ml-64 {
+                margin-left: 0 !important;
+            }
+            /* Mobile header/navigation style */
+            .mobile-nav {
+                display: flex;
+                justify-content: space-around;
+                padding: 1rem 0;
+                border-bottom: 1px solid #e5e5e5;
+            }
+        }
+
+    </style>
+</head>
+<body class="bg-white text-black flex flex-col md:flex-row min-h-screen">
+
+    <!-- Mobile Navigation (Top Bar) -->
+    <header class="mobile-nav md:hidden bg-white z-20">
+        <a href="#" class="text-sm font-medium hover:opacity-60 transition-opacity">
+            Brand Story
+        </a>
+        <a href="#" class="text-sm font-medium hover:opacity-60 transition-opacity">
+            Contact Us
+        </a>
+    </header>
+
+
+    <!-- 1. Left Sidebar (Desktop only Navigation) -->
+    <aside class="w-full md:w-64 lg:w-72 flex-shrink-0 bg-white border-r border-gray-100 md:border-none flex flex-col justify-between p-8 md:fixed md:h-full z-20 hidden md:flex">
+        
+        <!-- Top Menu -->
+        <nav class="flex flex-col space-y-8 mt-4">
+            <a href="#" class="text-sm font-medium hover:opacity-60 transition-opacity">
+                Brand Story
+            </a>
+            
+            <a href="#" class="text-sm font-medium hover:opacity-60 transition-opacity">
+                Contact Us
+            </a>
+        </nav>
+
+        <!-- Sidebar Footer (Placeholder for balance) -->
+        <div class="hidden md:block opacity-0">
+            <!-- Placeholder to balance flex layout if needed -->
+        </div>
+    </aside>
+
+    <!-- 2. Right Main Content Area -->
+    <!-- Desktop: Ensure left margin accounts for sidebar width -->
+    <main class="flex-1 md:ml-64 lg:ml-72 flex flex-col min-h-screen bg-white">
+        
+        <!-- Hero Section: Black block for the logo -->
+        <section id="hero-section" class="w-full bg-black h-[50vh] md:h-[65vh] flex items-center justify-center relative overflow-hidden transition-colors duration-500">
+            
+            <div class="w-full h-full flex items-center justify-center p-0">
+                <img src="logo.jpg" 
+                     alt="JGJ Logo" 
+                     class="h-full w-full object-cover md:object-contain" 
+                     onload="document.getElementById('hero-section').classList.add('bg-black'); document.getElementById('hero-section').classList.remove('bg-white');"
+                     onerror="this.style.display='none'; document.getElementById('alt-text-fallback').style.display='flex'; document.getElementById('hero-section').classList.add('bg-white'); document.getElementById('hero-section').classList.remove('bg-black');"
+                />
+                <!-- Fallback text displayed when image is not found -->
+                <div id="alt-text-fallback" class="hidden text-black flex-col items-center justify-center h-full w-full">
+                    <p class="text-xl font-bold">Image Not Found</p>
+                    <p class="text-sm text-gray-600 mt-2">Please ensure 'logo.jpg' is in the same directory.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Text Content Section -->
+        <section class="flex-grow px-6 py-12 md:px-12 md:py-20 max-w-7xl mx-auto w-full">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+                
+                <!-- Left Column: Brand Name (Two Lines) -->
+                <div class="md:col-span-5 lg:col-span-4">
+                    <h1 class="text-5xl md:text-6xl font-sans font-bold leading-tight tracking-tight">
+                        jeong-<br>
+                        geo-jang
+                    </h1>
+                </div>
+
+                <!-- Right Column: Studio Description -->
+                <div class="md:col-span-7 lg:col-span-8 flex flex-col space-y-8 text-sm md:text-base leading-relaxed text-gray-800">
+                    <p>
+                        JGJ is a design studio embracing the quiet rhythm of the 'stopover'.
+                    </p>
+                    <p>
+                        We believe design is the vital connection between people, brands, and experiences.
+                    </p>
+                    <p>
+                        Here, every new journey begins with deep listening, evolving into an intentional flow.<br>
+                        Like a station between journeys, JGJ is where ideas pause, gather strength, and begin again with balance, patience, and an open mind for transformation.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-auto px-6 py-8 md:px-12 border-t border-gray-100 bg-white text-xs font-medium text-gray-900">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end h-full space-y-8 md:space-y-0">
+                
+                <!-- Left: Links -->
+                <div class="flex space-x-8">
+                    <a href="#" class="underline decoration-1 underline-offset-4 hover:no-underline">Instagram</a>
+                    <a href="#" class="underline decoration-1 underline-offset-4 hover:no-underline">Contact Us</a>
+                </div>
+
+                <!-- Right: Copyright Info -->
+                <div class="w-full md:w-auto flex flex-col md:flex-row justify-between md:space-x-40 pt-4 md:pt-0">
+                    <span class="mb-2 md:mb-0">©2025 JGJ studio</span>
+                    <span>All Rights Reserved</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
