@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JGJ Design Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'jgj-black': '#000000',
+                        'jgj-white': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        // 기본 산세리프(고딕) 폰트 설정
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom selection color */
+        ::selection {
+            background: #000000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-white text-black flex flex-col md:flex-row min-h-screen">
+
+    <!-- 1. LEFT SIDEBAR (Navigation) -->
+    <!-- Fixed width on desktop (w-64), hidden on mobile or becomes a top bar -->
+    <aside class="w-full md:w-64 lg:w-72 flex-shrink-0 bg-white border-r border-gray-100 md:border-none flex flex-col justify-between p-8 md:fixed md:h-full z-20">
+        
+        <!-- Top Menu -->
+        <nav class="flex flex-col space-y-8 mt-4">
+            <!-- Brand Story: Removed '01' as requested -->
+            <a href="#" class="text-sm font-medium hover:opacity-60 transition-opacity">
+                Brand Story
+            </a>
+            
+            <a href="#" class="text-sm font-medium hover:opacity-60 transition-opacity">
+                Contact Us
+            </a>
+        </nav>
+
+        <!-- Sidebar Footer (Optional decoration or empty space) -->
+        <div class="hidden md:block opacity-0">
+            <!-- Placeholder to balance flex layout if needed -->
+        </div>
+    </aside>
+
+    <!-- 2. RIGHT MAIN CONTENT -->
+    <!-- Added left margin on desktop to account for fixed sidebar -->
+    <main class="flex-1 md:ml-64 lg:ml-72 flex flex-col min-h-screen bg-white">
+        
+        <!-- HERO SECTION: Black Block with Logo -->
+        <!-- Takes up significant height -->
+        <section class="w-full bg-black h-[50vh] md:h-[65vh] flex items-center justify-center relative overflow-hidden">
+            
+            <!-- 
+                [로고 이미지 영역]
+                가지고 계신 로고 이미지를 사용하기 위해 <img> 태그로 변경했습니다.
+                1. 이 HTML 파일과 같은 폴더에 로고 이미지를 넣어주세요.
+                2. 이미지 파일 이름을 'logo.jpg'로 변경하거나, 아래 src="logo.jpg"를 실제 파일명으로 수정하세요.
+            -->
+            <div class="w-full h-full flex items-center justify-center p-0">
+                <img src="logo.jpg" 
+                     alt="JGJ Logo" 
+                     class="h-full w-full object-cover md:object-contain" 
+                     onerror="this.style.display='none'; document.getElementById('alt-text').style.display='block';"
+                />
+                <!-- 이미지가 없을 때(경로 에러 시) 보여줄 대체 텍스트 -->
+                <div id="alt-text" class="hidden text-white text-center">
+                    <p class="text-xl font-bold">이미지를 찾을 수 없습니다.</p>
+                    <p class="text-sm text-gray-400 mt-2">폴더에 'logo.jpg' 파일을 넣어주세요.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEXT CONTENT SECTION -->
+        <section class="flex-grow px-6 py-12 md:px-12 md:py-20 max-w-7xl mx-auto w-full">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+                
+                <!-- Left Column: Brand Name -->
+                <div class="md:col-span-5 lg:col-span-4">
+                    <!-- 
+                        Font changed from 'font-serif' to 'font-sans' (Gothic style) 
+                        font-bold maintains the visual weight similar to the screenshot but in Gothic.
+                    -->
+                    <h1 class="text-5xl md:text-6xl font-sans font-bold leading-tight tracking-tight">
+                        jeong-<br>
+                        geo-jang
+                    </h1>
+                </div>
+
+                <!-- Right Column: Description -->
+                <div class="md:col-span-7 lg:col-span-8 flex flex-col space-y-8 text-sm md:text-base leading-relaxed text-gray-800">
+                    <p>
+                        JGJ is a design studio embracing the quiet rhythm of the 'stopover'.
+                    </p>
+                    <p>
+                        We believe design is the vital connection between people, brands, and experiences.
+                    </p>
+                    <p>
+                        Here, every new journey begins with deep listening, evolving into an intentional flow.<br>
+                        Like a station between journeys, JGJ is where ideas pause, gather strength, and begin again with balance, patience, and an open mind for transformation.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="mt-auto px-6 py-8 md:px-12 border-t border-gray-100 bg-white text-xs font-medium text-gray-900">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end h-full space-y-8 md:space-y-0">
+                
+                <!-- Left: Links -->
+                <div class="flex space-x-8">
+                    <a href="#" class="underline decoration-1 underline-offset-4 hover:no-underline">Instagram</a>
+                    <a href="#" class="underline decoration-1 underline-offset-4 hover:no-underline">Contact Us</a>
+                </div>
+
+                <!-- Right: Copyright (Split layout as per screenshot) -->
+                <div class="w-full md:w-auto flex flex-col md:flex-row justify-between md:space-x-40 pt-4 md:pt-0">
+                    <span class="mb-2 md:mb-0">©2025 JGJ studio</span>
+                    <span>All Rights Reserved</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
